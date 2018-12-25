@@ -1,0 +1,55 @@
+<style>
+
+ {
+    box-sizing: border-box;
+}
+
+body {
+	--jbraz: black;
+	--cbraz: #00a000;
+	--sbraz: black;
+	font-size: 2.5vh;
+	background-color: #00a000;
+}
+
+
+main{
+background-color: var(--cbraz);	
+}
+
+div:after {
+    content: "";
+    display: table;
+}
+.tresc-item{
+	font-size: 2.5vh;
+	text-indent: 1.5em;
+	text-align: justify;
+	background-color: var(--jbraz);
+	vertical-align: top;
+	overflow: initial;
+	flat:center;
+}
+.tresc{
+	font-size: 2.5vh;
+	text-align: justify;
+	background-color: var(--jbraz);
+	vertical-align: top;
+	overflow: initial;
+	flat:right;
+}
+
+
+footer {
+	float: left;
+	background-color: var(--cbraz);
+    text-align: left;
+    color: white;
+
+}
+@media {
+    nav, article {
+        max width: 100%;
+        height: auto;
+}}
+</style>
