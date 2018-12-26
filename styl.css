@@ -4,52 +4,126 @@
     box-sizing: border-box;
 }
 
+
+html {
+  height: 100%;
+}
 body {
+    min-height: 100%;
+    font-family:Arial, Helvetica, Sans-serif;
+    font-size:14px;
+ 
 	--jbraz: black;
 	--cbraz: #00a000;
 	--sbraz: black;
-	font-size: 2.5vh;
-	background-color: #00a000;
 }
+ 
+.container {
+	width:100%;
+    margin:0 auto;}
+
+header {
+	margin:0 0;
+	position: fixed;	
+}
+
+li {
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 2px;
+  background-color: green;
+}
+header img {width:100%;}
+
+
+aside {
+	width:100%;
+	margin:0 0 0;
+	position: fixed;
+}
+
+
+
+#main {
+	float:right;
+	width:65%;
+	}
 
 
 main{
-background-color: var(--cbraz);	
+    background-color: var(--jbraz);	
+    padding:15px 0 15px 30px;
 }
-
-div:after {
-    content: "";
-    display: table;
-}
-.tresc-item{
-	font-size: 2.5vh;
-	text-indent: 1.5em;
-	text-align: justify;
-	background-color: var(--jbraz);
-	vertical-align: top;
-	overflow: initial;
-	flat:center;
-}
-.tresc{
-	font-size: 2.5vh;
-	text-align: justify;
-	background-color: var(--jbraz);
-	vertical-align: top;
-	overflow: initial;
-	flat:right;
-}
-
 
 footer {
-	float: left;
-	background-color: var(--cbraz);
-    text-align: left;
-    color: white;
 
+    color:#00a000;
+    padding:15px 0 15px 30px;
+	background-color: var(--cbraz);
+    color: white;
 }
+
+
 @media {
     nav, article {
         max width: 100%;
-        height: auto;
+        height: auto;		
 }}
+
+
+
+@media (min-width: 1100px) {
+
+.container {width:1050px;}
+
+aside {width:30%;}
+
+#main {width:65%;}
+
+}
+
+@media (max-width: 1100px) and (min-width: 1000px) {
+
+.container {width:950px;}
+
+aside {width:30%;}
+
+#main {width:65%;}
+
+}
+
+@media (max-width: 1000px) and (min-width: 800px) {
+
+.container {width:750px;}
+
+aside {width:30%;}
+
+#main {width:65%;}
+
+}
+
+@media (max-width: 800px) and (min-width: 500px) {
+
+.container {width:450px;}
+
+aside,
+
+#main {width:100%;}
+
+}
+
+@media (max-width: 500px) {
+
+.container {width:90%;}
+
+aside,
+
+#main {width:100%;}
+
+}
+
+
 </style>
