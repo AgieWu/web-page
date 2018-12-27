@@ -30,10 +30,10 @@
 	    </script>
 		<div class= "container">
 		
+		
       <header>
 
-         <img src="/strona/img/nag.png" alt="" style="width: 100%; height: 100%;" />
-
+ <img src="/strona/img/logo1.png" height="25%" width="100%"/> 
           <nav id="menu" class="navbar">
                <a href="#one">Wegańskie</a>
 	           <a href="#two">Wytrawne</a>

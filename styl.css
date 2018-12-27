@@ -7,26 +7,32 @@ body {
     font-family:Arial, Helvetica, Sans-serif;
     font-size:11px;
     margin:0;
+	 display: flex; 
+ justify-content: flex-start;
  
 	--jbraz: white;
 	--stopka: green;
 	--sbraz: black;
 }
  
-
 header {
 	position: fixed;
-    top:0;
-    padding:0 100px 0px 0px;
+  
+    padding:0px 100px 0px 0px;
+	 width: 100%;
+	 margin-top:-10px;
+	 
 
 }
+
 
 .navbar {
   overflow: hidden;
   background-color: #336;
   position: fixed;
-  top: 0;
-  width: 100%;
+ display: flex; 
+ justify-content: flex-start !important;
+   width: 100%;
 }
 
 .navbar a {
@@ -36,7 +42,9 @@ header {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  
   font-size: 17px;
+ 
 }
 
 main {
@@ -47,9 +55,11 @@ padding: 220px;
 
 footer {
 
-    padding:15px 0 15px 30px;
+    
 	background-color: green;
     color: black;
+	 width: 100%;
+	
 }
 
 
