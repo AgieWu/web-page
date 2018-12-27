@@ -16,15 +16,27 @@ body {
 }
  
 header {
-	position: fixed;
-  
-    padding:0px 100px 0px 0px;
+
+    padding:0px 0px 0px 0px;
 	 width: 100%;
-	 margin-top:-10px;
-	 
+	margin-top:-10px;
+	  background-color: white;
+	   position: sticky;
+	     top: 0;
 
+	
+	}
+
+#mainowy
+{
+	padding: 120px 120px 0 0 ;
+	
 }
-
+img {
+	position:relative;
+    max-width: 100%;
+    height: auto;
+}
 
 .navbar {
   overflow: hidden;
@@ -33,13 +45,24 @@ header {
  display: flex; 
  justify-content: flex-start !important;
    width: 100%;
+ 
+}
+
+h1 {
+  font-size: 5.9vw;
+}
+h2 {
+  font-size: 3.0vh;
+}
+p {
+  font-size: 2vmin;
 }
 
 .navbar a {
   float: left;
   display: block;
   color: #f2f2f2;
-  text-align: center;
+ 
   padding: 14px 16px;
   text-decoration: none;
   
@@ -48,17 +71,20 @@ header {
 }
 
 main {
-padding: 220px;
+padding: 15px 0px 0px 0px;
  margin-top: 10px;
+
+  text-align: justify;
 
 }
 
 footer {
 
-    
-	background-color: green;
-    color: black;
-	 width: 100%;
+ padding: 10px 10px 5px 10px;
+	
+    color: white;
+	width: 100%;
+	background-color: #336;
 	
 }
 
