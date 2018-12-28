@@ -15,34 +15,31 @@
 </head>
 
 <body>
-
-        <script>
-	
-		    $(document).on('click', 'a[href^=\\#]', function (event) 
-		    {
-            event.preventDefault();
-
-             $('html, body').animate({
-			
-             scrollTop: $($.attr(this, 'href')).offset().top-300
-             }, 2000);
-             });
-	    </script>
 		<div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<a href="http://localhost:8080/strona/strona.php">
- <img class="img-responsive" src="/strona/img/logo1.png" height="25%" width="100%"/> 
- </a>
-      <header >
+		
+		
+	    <a href="http://localhost:8080/strona/strona.php">
+         <img class="img-responsive" src="/strona/img/logo1.png" height="25%" width="100%"/> 
+        </a>
 
-    
-
-		      <nav id="menu" class="navbar" >
-		  <a href="http://localhost:8080/strona/strona.php">O nas</a>
-               <a href="#one">Wegańskie</a>
-	           <a href="#two">Wytrawne</a>
-	           <a href="#three">Słodkie</a>
-			    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-			
+	  
+	    <header >
+	  
+	  
+		  <nav id="menu" class="navbar" >
+		  <ul>
+	      <li><a href="http://localhost:8080/strona/strona.php">Home</a></li>
+		  <li><a href="http://localhost:8080/strona/przepisy.php">Przepisy</a></li>
+           <li><a href="http://localhost:8080/strona/przepisy.php">Produkty</a></li>
+           <ul><li> <a href="#two">Ryże</a></li>
+           <li><a href="#three">Kasze</a></li>
+	       <li><a href="#three">Inne</a></li></ul>
+				
+	
+		   
+					
+          </ul>
+		  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
           </nav>
        </header>
 	
@@ -57,8 +54,7 @@ function myFunction() {
 }
 </script>
 	
-	
-	
+
 	
 	
 	   
@@ -101,7 +97,7 @@ function myFunction() {
 			</section>
         </main>
 
-       <footer class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+       <footer >
 	      <h3>Kontakt</h3>
           <p>Zapraszamy do zakupów poprzez stronę internetową.
 	      <br>Dla państwa wygody uruchomiony został również sklep stacjonarny.</br></p>
@@ -114,9 +110,10 @@ function myFunction() {
 
 	
 		</div>
-       <script src="js/bootstrap.min.js"></script>
+     
+	 <script src="js/bootstrap.min.js"></script>
 	   <link rel="stylesheet" href="dist/css/lightbox.min.css">
-       <link rel="stylesheet"  href="css/bootstrap.min.css"/> 
+       <link rel="stylesheet"  href="css/bootstrap.min.css"/>
 
 </body>
 
