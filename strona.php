@@ -28,22 +28,38 @@
              }, 2000);
              });
 	    </script>
-		<div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12"">
+		<div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<a href="http://localhost:8080/strona/strona.php">
- <img src="/strona/img/logo1.png" height="25%" width="100%"/> 
+ <img class="img-responsive" src="/strona/img/logo1.png" height="25%" width="100%"/> 
  </a>
       <header >
 
     
 
-		      <nav id="menu" class="navbar navbar-default" >
-		
+		      <nav id="menu" class="navbar" >
+		  <a href="http://localhost:8080/strona/strona.php">O nas</a>
                <a href="#one">Wegańskie</a>
 	           <a href="#two">Wytrawne</a>
 	           <a href="#three">Słodkie</a>
+			    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
 			
           </nav>
        </header>
+	
+	<script>
+function myFunction() {
+  var x = document.getElementById("menu");
+  if (x.className === "navbar") {
+    x.className += " responsive";
+  } else {
+    x.className = "navbar";
+  }
+}
+</script>
+	
+	
+	
+	
 	
 	   
      <main  >
