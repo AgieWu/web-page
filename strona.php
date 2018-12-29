@@ -23,47 +23,92 @@
         </a>
 
 	  
-	    <header >
-	  
-	  
-		  <nav id="menu" class="navbar" >
-		  <ul>
+	    <header>
+	 
+		<nav id="menu" class="navbar">
+	
+		  <ul class="main" >
 	      <li><a href="http://localhost:8080/strona/strona.php">Home</a></li>
 		  <li><a href="http://localhost:8080/strona/przepisy.php">Przepisy</a></li>
-           <li><a href="http://localhost:8080/strona/przepisy.php">Produkty</a></li>
-           <ul><li> <a href="#two">Ryże</a></li>
+          <li><a href="#">Produkty <i class="fa fa-caret-down"></i></a>
+         
+		 <ul >
+		   <li><a href="#two">Ryże</a></li>
            <li><a href="#three">Kasze</a></li>
-	       <li><a href="#three">Inne</a></li></ul>
-				
-	
-		   
-					
+	       <li><a href="#three">Inne</a></li>
+		  </ul>	
+		 
+		  </li>
+		   <li class="log"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
           </ul>
-		  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-          </nav>
+		  <a href="javascript:void(0);"  class="icon" onclick="myFunction()"> &#9776;</a>
+        </nav>
        </header>
 	
 	<script>
-function myFunction() {
-  var x = document.getElementById("menu");
-  if (x.className === "navbar") {
-    x.className += " responsive";
-  } else {
-    x.className = "navbar";
-  }
-}
-</script>
+       function myFunction() {
+       var x = document.getElementById("menu");
+       if (x.className === "navbar") {
+        x.className += " responsive";
+       } else {
+        x.className = "navbar";
+       }
+       }
+    </script>
+	
 	
 
-	
-	
-	   
-     <main  >
-      
+     <main>
+      <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Pierwsza zakładka akordeonu
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse">
+      <div class="panel-body">
+        TREŚĆ PIERWSZEJ ZAKŁADKI AKORDEONU Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Druga zakładka akordeonu
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse in">
+      <div class="panel-body">
+        TREŚĆ DRUGIEJ ZAKŁADKI AKORDEONU Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          3 zakładka akordeonu
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		TREŚĆ TRZECIEJ ZAKŁADKI AKORDEONU Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
            <section id="one"  >
 				<h1>Przepisy wegańskie</h1>
 				<article>
 					<p>
+					
 					s venenatis, at gravida ri
                     Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
                     Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
@@ -114,6 +159,11 @@ function myFunction() {
 	 <script src="js/bootstrap.min.js"></script>
 	   <link rel="stylesheet" href="dist/css/lightbox.min.css">
        <link rel="stylesheet"  href="css/bootstrap.min.css"/>
+	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+	   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	   
 
 </body>
 
