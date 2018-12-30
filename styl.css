@@ -41,13 +41,21 @@ img {
 	
 }
 
+.carousel-indicators {
+	z-index:1 !important;
+}
+
+.carousel-inner {
+	z-index:0;
+}
+
 .navbar {
  /* overflow: hidden; */
   background-color: #336;
   position: fixed;
   display:block !important;
   width: 100%;
-padding: 1px 0px 3px 0 !important;
+padding: 1px 0px 5px 0 !important;
   position: absolute !important;
   top: 10px;
 

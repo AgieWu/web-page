@@ -79,7 +79,7 @@
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Item #1
+		O nas
         </button>
       </h5>
     </div>
@@ -94,7 +94,7 @@
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Collapsible Group Item #2
+          Idea
         </button>
       </h5>
     </div>
@@ -108,7 +108,7 @@
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Collapsible Group Item #3
+         Przyłącz się!
         </button>
       </h5>
     </div>
@@ -135,7 +135,7 @@
 	  
 	  
 	  
-	  
+	    <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12"  style="padding:0">
 	  
 <div id="przykladowaKaruzela4" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -152,20 +152,20 @@
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="https://placeholdit.imgix.net/~text?txtsize=107&txt=Drugi+slide&w=1280&h=500" alt="Drugi slajd">
+      <img class="d-block w-100" src="/strona/img/ciastko.png" alt="Drugi slajd">
       <div class="carousel-caption">
         <h5>Drugi slajd</h5>
         <p>Opis drugiego slajdu</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="https://placeholdit.imgix.net/~text?txtsize=107&txt=Trzeci+slide&w=1280&h=500" alt="Trzeci slajd">
+      <img class="d-block w-100" src="/strona/img/patelnia.png" alt="Trzeci slajd">
       <div class="carousel-caption">
         <h5>Trzeci slajd</h5>
         <p>Opis trzeciego slajdu</p>
       </div>
     </div>
-
+</div>
   </div>
 
 </div>
