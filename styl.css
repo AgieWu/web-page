@@ -58,6 +58,7 @@ img {
 padding: 1px 0px 5px 0 !important;
   position: absolute !important;
   top: 10px;
+  border-radius: .25rem;
 
   
 }
@@ -302,6 +303,42 @@ padding: 60px 0px 0px 0px;
 
 }
 
+.btn-link {
+	width:100% !important;
+	color:white !important;
+}
+.btn{
+	
+	text-align:left !important;
+	font-size: 1.5rem !important;
+}
+
+ .btn-link:hover {
+
+    color: black !important;
+    text-decoration: none !important;
+ }
+
+.card-header{
+	background-color:grey !important;
+	padding:0 !important;
+	border-bottom:none !important;
+	
+}
+.btn:hover{
+	background-color:#ddd  !important;
+    text-decoration: none !important;
+
+	
+}
+.card-header:hover{
+
+background-color:#ddd  !important;}
+
+.btn-link.focus, .btn-link:focus {
+
+    text-decoration: none !important;
+}
 
 
 footer {
@@ -309,7 +346,23 @@ footer {
     color: white;
 	width: 100%;
 	background-color: #336;
+	border-radius: .25rem;
 	
+}
+
+.scroll{
+	
+background-color:grey;
+position: absolute;
+
+margin: 65px 0;
+border-radius: .25rem;
+color:white;
+width: 300px;
+    height: 165px;
+
+}
+
 }
 
 

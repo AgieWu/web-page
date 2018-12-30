@@ -61,7 +61,7 @@
      <main>
       
 	  
-	  
+
 	  
 	  
 	  
@@ -86,7 +86,8 @@
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        Jesteśmy firmą promującą zdrowe nawyki żywieniowe. Dzięki współpracy z Instytutem Żywności i Żywienia im. prof. dra med. Aleksandra Szczygła możemy zaoferować Państwu najwyższej jakości produkty, 
+		które mogą zostać wykorzystane zgodnie z naszymi sprawdzonymi przepisami.
       </div>
     </div>
   </div>
@@ -100,7 +101,8 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        Celem działalności naszej firmy jest szerzenie wiedzy na temat zdrowego odżwyiania oraz promowanie produktów z ekologicznych źródeł. Leży nam na sercu ogólne zdrowie społeczeństwa, ale również zdrowie naszej żywicielki - Natury. 
+		Korzystając z naszych przepisów i usług mają Państwo pewność, że spełnią wszelkie wymagania dotyczące wartości odżwyczych.
       </div>
     </div>
   </div>
@@ -114,109 +116,66 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+        Dzielenie się informacjami jest ogromnym sprzymierzeńcem dla rozwoju, dlatego zdecydowaliśmy się uruchomić opcję dodawania przepisów Państwa autorstwa. Po sprawdzeniu ich pod kątem wartości odżywczych przez naszego specjalistę  zostaną one opublikowane na stronie,
+        by każdy odwiedzający miał możliwość sprawdzenia, jakie smaki kryją się w Państwa domach. Gorąco zachęcamy!		
       </div>
     </div>
   </div>
 </div>
+       <p></p>
 	  
 	  
 	  
 	  
 	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
-	  
+	
 	  
 	  
 	    <div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12"  style="padding:0">
 	  
-<div id="przykladowaKaruzela4" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#przykladowaKaruzela4" data-slide-to="0" class="active"></li>
-    <li data-target="#przykladowaKaruzela4" data-slide-to="1"></li>
-    <li data-target="#przykladowaKaruzela4" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
+      <div id="przykladowaKaruzela4" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+      <li data-target="#przykladowaKaruzela4" data-slide-to="0" class="active"></li>
+      <li data-target="#przykladowaKaruzela4" data-slide-to="1"></li>
+      <li data-target="#przykladowaKaruzela4" data-slide-to="2"></li>
+     </ol>
+     <div class="carousel-inner">
+       <div class="carousel-item active">
       <img class="d-block w-100" src="/strona/img/groch.png" alt="Pierwszy slajd">
       <div class="carousel-caption">
-        <h5>Pierwszy slajd</h5>
-        <p>Opis pierwszego slajdu</p>
+        <h3>Najwyższej jakości produkty</h3>
+     gwarantują wartościowy posiłek
       </div>
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="/strona/img/ciastko.png" alt="Drugi slajd">
       <div class="carousel-caption">
-        <h5>Drugi slajd</h5>
-        <p>Opis drugiego slajdu</p>
+        <h3>Idealnie skomponowane składniki</h3>
+        zaspokoją prawdziwych smakoszy
       </div>
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="/strona/img/patelnia.png" alt="Trzeci slajd">
       <div class="carousel-caption">
-        <h5>Trzeci slajd</h5>
-        <p>Opis trzeciego slajdu</p>
+        <h3>Pamiętając o podstawach</h3>
+        by regularne spożywanie posiłków stało się przyjemnym obowiązkiem
       </div>
     </div>
 </div>
   </div>
 
 </div>
-
-
-           <section id="one"  >
-				<h1>Przepisy wegańskie</h1>
-				<article>
-					<p>
-					
-					s venenatis, at gravida ri
-                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
-                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
-					</p>
-					
-				</article>
-		    </section>
-	       <section id="two">
-				<h2>Przepisy wytrawne</h2>
-				<article>
-					<p>
-						Donec finibus
-                        Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
-					</p>
-					<p>
-						Donec ajdjd
-                        Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
-					</p>
-				</article>
-			</section>
-	       <section id="three">
-				<h1>Przepisy na słodko</h1>
-				<article>
-					<p>
-						Donec finibus vff et  varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
-					</p>
-					<p>
-						Donec finibus lkk liquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros ve s, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Ali
-					</p>
-				</article>
-			</section>
+<p></p>
         </main>
 
        <footer >
 	      <h3>Kontakt</h3>
-          <p>Zapraszamy do zakupów poprzez stronę internetową.
-	      <br>Dla państwa wygody uruchomiony został również sklep stacjonarny.</br></p>
-          <p>Adres:
+          Zapraszamy do zakupów poprzez stronę internetową.
+	      <br>Dla państwa wygody uruchomiony został również sklep stacjonarny.</br>
+          Adres:
 	      <br> ul. Miętowa 18
           <br>81-589 Gdynia
-          <br>Tel.: 58 98 414 56</br></p>
+          <br>Tel.: 58 98 414 56</br>
 	
         </footer>
 
