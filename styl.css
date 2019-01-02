@@ -355,15 +355,50 @@ footer {
 background-color:grey;
 position: absolute;
 
-margin: 65px 0;
+margin: 61px 0;
 border-radius: .25rem;
 color:white;
 width: 300px;
-    height: 165px;
+
+height: 27px;
+
+z-index:-1;
 
 }
 
+/* /* .przepisy{ */ */
+	/* margin-left: 320px; */
+	/* width: 78%; */
+/* } */
+
+
+img .przepis {
+	width:200px;
+height:200px}
+
+a {
+
+color: white !important;}
+
+
+.ulscroll{
+
+margin-left: -5px !important;
+	
 }
 
+.ulscroll li{display: inline-block;
+padding: 0 10px 0 0;
+}
+
+
+.hprzepisy{
+	
+text-align: center;
+
+margin-left: 150px;
+
+margin-top: 40px;
+}
 
 </style>

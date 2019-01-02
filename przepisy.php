@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pl-PL">
 <head>
@@ -25,7 +28,7 @@
 
 
              $('html, body').animate({
-             scrollTop: $($.attr(this, 'href')).offset().top-300
+             scrollTop: $($.attr(this, 'href')).offset().top-400
              }, 2000);
              });
 	    </script>
@@ -60,10 +63,10 @@
         </nav>
 			 <div class="scroll ">
 	
-	 <ul >
-		   <li><a href="#two">Przepisy wegańskie</a></li>
-           <li><a href="#three">Przepisy wytrawne</a></li>
-	       <li><a href="#three">Przepisy na słodko</a></li>
+	 <ul class="ulscroll" >
+		   <li><a href="#one">Wegańskie</a></li>
+           <li><a href="#two">Wytrawne</a></li>
+	       <li><a href="#three">Słodkie</a></li>
 		  </ul>	
 	
 	 </div>
@@ -82,15 +85,201 @@
 	
 	
 
-     <main>
+     <main >
 
-     <a href="#two">Przepisy na słodko</a>
+					<h2 class="hprzepisy">Poniżej znajdą państwo</h2>
+		
+	 <div class="przepisy container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	 
+
+
            <section id="one">
-				<h1>Przepisy wegańskie</h1>
+				<h2 class="hprzepisy">Przepisy wegańskie</h2>
+				
+				
+				
+				
+				
+				
+				
+				
+		<?php
+	require_once "connect.php";
+	$connect = new mysqli($host, $user, $pass, $database);
+	$connect -> query ('SET NAMES utf8');
+	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
+	if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+	else
+	{
+		
+
+		$sql="SELECT * FROM przepisy WHERE rodzaj_id=' 1 - wegańskie' ";
+		$wynik=$connect->query($sql);
+	
+		if(mysqli_num_rows($wynik) > 0) { 
+		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
+		echo "<table>"; 
+		while($r = mysqli_fetch_object($wynik)) { 
+        echo "<tr>"; 
+		echo "<td><br>".$r->img."</td>";
+        echo "<td><b>".$r->nazwa."</b><br>"; 
+		 
+        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
+		//echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
+        echo "</tr>"; 
+		} 
+		echo "</table><br><br>"; 
+		//koniec tabeli
+
+		}	
+		
+		$connect->close();
+	}
+	
+?>
+	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+								
+		<?php
+	require_once "connect.php";
+	$connect = new mysqli($host, $user, $pass, $database);
+	$connect -> query ('SET NAMES utf8');
+	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
+	if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+	else
+	{
+		
+
+		$sql="SELECT * FROM przepisy WHERE rodzaj_id=' 2 - wytrawne' ";
+		$wynik=$connect->query($sql);
+	
+		if(mysqli_num_rows($wynik) > 0) { 
+		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
+		echo "<table>"; 
+		while($r = mysqli_fetch_object($wynik)) { 
+        echo "<tr>"; 
+		echo "<td><br>".$r->img."</td>";
+        echo "<td><b>".$r->nazwa."</b><br>"; 
+		 
+        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
+		//echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
+        echo "</tr>"; 
+		} 
+		echo "</table><br><br>"; 
+		//koniec tabeli
+
+		}	
+		
+		$connect->close();
+	}
+	
+?>
+	
+				
+				
+				
+				
+				
+				
+				
+								
+		<?php
+	require_once "connect.php";
+	$connect = new mysqli($host, $user, $pass, $database);
+	$connect -> query ('SET NAMES utf8');
+	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
+	if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+	else
+	{
+		
+
+		$sql="SELECT * FROM przepisy WHERE rodzaj_id=' 3 - słodkie' ";
+		$wynik=$connect->query($sql);
+	
+		if(mysqli_num_rows($wynik) > 0) { 
+		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
+		echo "<table>"; 
+		while($r = mysqli_fetch_object($wynik)) { 
+        echo "<tr>"; 
+		echo "<td><br>".$r->img."</td>";
+        echo "<td><b>".$r->nazwa."</b><br>"; 
+		 
+        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
+		//echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
+        echo "</tr>"; 
+		} 
+		echo "</table><br><br>"; 
+		//koniec tabeli
+
+		}	
+		
+		$connect->close();
+	}
+	
+?>
+	
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				<article>
-					<p>
-					
-					s venenatis, at gravida ri
+		
+   
+		<table>
+		<tr>
+        <td><img class="przepis" src="/strona/img/nalesniory.png" /></td>
+        <td>s venenatis, at gravida ri
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. 
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius.
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+					Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. 
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius.
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+					Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. </td>
+
+      </tr>
+      <tr>
+        <td><img class="przepis" src="/strona/img/nalesniory.png" /></td>
+        <td>Moe s venenatis, at gravida ri
                     Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. 
 					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
                     Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius.
@@ -103,44 +292,75 @@
 					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
                     Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius.
 					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
-					</p>
+					Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. </td>
+   
+      </tr>
+	  </table>
+				
+				
 					
 				</article>
 		    </section>
 	       <section id="two">
-				<h2>Przepisy wytrawne</h2>
+				<h2 class="hprzepisy">Przepisy wytrawne</h2>
 				<article>
-					<p>
-						Donec finibus
-                        Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
-					</p>
-					<p>
-						Donec ajdjd
-                        Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
-					</p>
+				<table>
+		<tr>
+        <td>
+         <img class="przepis" src="/strona/img/nalesniory.png" /> </td>
+        <td>s venenatis, at gravida ri
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. 
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius.
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+					Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. 
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius.
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+					Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. </td>
+
+      </tr>
+      <tr>
+        <td><img class="przepis" src="/strona/img/nalesniory.png" /></td>
+        <td>Moe s venenatis, at gravida ri
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. 
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius.
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+					Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. 
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius.
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+					Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. 
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+                    Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius.
+					Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
+					Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. </td>
+   
+      </tr>
+	  </table>
+					
 				</article>
 			</section>
 	       <section id="three">
-				<h1>Przepisy na słodko</h1>
+				<h2 class="hprzepisy">Przepisy na słodko</h2>
 				<article>
-					<p>
+					
 						Donec finibus vff et  varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l Donec finibus vff et eros venenatis, at gravida risus varius.
 						Aliquam non l et eros venenatis, at gravida risus varius. 
 						Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l Donec finibus vff et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis,
 						at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius
 						. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Aliquam non l
-					</p>
-					<p>
 						Donec finibus lkk liquam non l et eros venenatis, at gravida risus varius. Aliquam non l et eros ve s, at gravida risus varius. Aliquam non l et eros venenatis, at gravida risus varius. Ali
-					</p>
+					
 				</article>
 			</section>
+			<div>
         </main>
 
        <footer >
 	      <h3>Kontakt</h3>
-          <p>Zapraszamy do zakupów poprzez stronę internetową.
-	      <br>Dla państwa wygody uruchomiony został również sklep stacjonarny.</br></p>
+          
           <p>Adres:
 	      <br> ul. Miętowa 18
           <br>81-589 Gdynia
@@ -153,10 +373,11 @@
      
 	 
 <link rel="stylesheet" href="dist/css/lightbox.min.css">
+<script src="dist/js/lightbox-plus-jquery.min.js"></script>
 
 	 	   
 	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-	   
+	
 	   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
