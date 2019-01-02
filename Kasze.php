@@ -21,23 +21,6 @@ session_start();
 <body>
 
 
-
-  <script>
-	
-		    $(document).on('click', 'a[href^=\\#]', function (event) 
-		    {
-						
-            event.preventDefault();
-
-
-             $('html, body').animate({
-             scrollTop: $($.attr(this, 'href')).offset().top-60
-             }, 2000);
-             });
-	    </script>
-
-		
-
 		<div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		
 		
@@ -66,15 +49,7 @@ session_start();
           </ul>
 		  <a href="javascript:void(0);"  class="icon" onclick="myFunction()"> &#9776;</a>
         </nav>
-			 <div class="scroll ">
-	
-	 <ul class="ulscroll" >
-		   <li><a href="#one">Wegańskie</a></li>
-           <li><a href="#two">Wytrawne</a></li>
-	       <li><a href="#three">Słodkie</a></li>
-		  </ul>	
-	
-	 </div>
+			
 		</header>
 	
 	<script>
@@ -92,21 +67,13 @@ session_start();
 
      <main >
 
-					<h2 class="hprzepisy">Poniżej znajdą państwo</h2>
+				
 		
 	 <div class="przepisy container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	 
 
 
-           <section id="one">
-				<h2 class="hprzepisy">Przepisy wegańskie</h2>
-				
-				
-				
-				
-				
-				
-				
+           <section>
 				
 		<?php
 	require_once "connect.php";
@@ -121,7 +88,7 @@ session_start();
 	{
 		
 
-		$sql="SELECT * FROM przepisy WHERE rodzaj_id=' 1 - wegańskie' ";
+		$sql="SELECT * FROM produkty WHERE kategoria='kasze' ";
 		$wynik=$connect->query($sql);
 	
 		if(mysqli_num_rows($wynik) > 0) { 
@@ -130,9 +97,11 @@ session_start();
 		while($r = mysqli_fetch_object($wynik)) { 
         echo "<tr>"; 
 		echo "<td><br>".$r->img."</td>";
-        echo "<td><b>".$r->nazwa."</b><br>"; 
+        echo "<td><b>".$r->nazwa."</b><br><br>"; 
 		 
         echo "<p align='justify'>".$r->opis."</p><br><br>"; 
+		echo "<p align='justify'><b>Cena: </b> ".$r->cena." zł</p><br><br>"; 
+		
 		//echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
         echo "</tr>"; 
 		} 
@@ -147,86 +116,6 @@ session_start();
 ?>
 
 		    </section>
-	       <section id="two">
-				<h2 class="hprzepisy">Przepisy wytrawne</h2>
-					<?php
-	require_once "connect.php";
-	$connect = new mysqli($host, $user, $pass, $database);
-	$connect -> query ('SET NAMES utf8');
-	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
-	if ($connect->connect_errno!=0)
-	{
-		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
-	}
-	else
-	{
-		
-
-		$sql="SELECT * FROM przepisy WHERE rodzaj_id=' 2 - wytrawne' ";
-		$wynik=$connect->query($sql);
-	
-		if(mysqli_num_rows($wynik) > 0) { 
-		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
-		echo "<table>"; 
-		while($r = mysqli_fetch_object($wynik)) { 
-        echo "<tr>"; 
-		echo "<td><br>".$r->img."</td>";
-        echo "<td><b>".$r->nazwa."</b><br>"; 
-		 
-        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
-		//echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
-        echo "</tr>"; 
-		} 
-		echo "</table><br><br>"; 
-		//koniec tabeli
-
-		}	
-		
-		$connect->close();
-	}
-	
-?>
-			</section>
-	       <section id="three">
-				<h2 class="hprzepisy">Przepisy na słodko</h2>
-				<?php
-	require_once "connect.php";
-	$connect = new mysqli($host, $user, $pass, $database);
-	$connect -> query ('SET NAMES utf8');
-	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
-	if ($connect->connect_errno!=0)
-	{
-		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
-	}
-	else
-	{
-		
-
-		$sql="SELECT * FROM przepisy WHERE rodzaj_id=' 3 - słodkie' ";
-		$wynik=$connect->query($sql);
-	
-		if(mysqli_num_rows($wynik) > 0) { 
-		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
-		echo "<table>"; 
-		while($r = mysqli_fetch_object($wynik)) { 
-        echo "<tr>"; 
-		echo "<td><br>".$r->img."</td>";
-        echo "<td><b>".$r->nazwa."</b><br>"; 
-		 
-        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
-		//echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
-        echo "</tr>"; 
-		} 
-		echo "</table><br><br>"; 
-		//koniec tabeli
-
-		}	
-		
-		$connect->close();
-	}
-	
-?>
-			</section>
 			<div>
         </main>
 
