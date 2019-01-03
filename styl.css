@@ -2,6 +2,7 @@
 <style>
 
 
+
 body {
     
     font-family:Arial, Helvetica, Sans-serif;
@@ -220,6 +221,7 @@ list-style-type:none;
   margin-top: 5px !important;
  
   text-align:center;
+   
 }
 
  
@@ -300,6 +302,7 @@ padding: 60px 0px 0px 0px;
  margin-top: 10px;
 
   text-align: justify;
+
 
 }
 
@@ -402,5 +405,19 @@ margin-top: 40px;
 }
 
 section{ margin-left:-25px}
+
+.parallax {
+  /* The image used */
+    background-image: url('/strona/img/fasola.png');
+
+  /* Full height */
+  height: 200px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 </style>

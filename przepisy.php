@@ -92,7 +92,8 @@ session_start();
 
      <main >
 
-					<h2 class="hprzepisy">Poniżej znajdą państwo</h2>
+<div class="parallax">jjjj</div>
+
 		
 	 <div class="przepisy container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	 
