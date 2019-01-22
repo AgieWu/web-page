@@ -36,7 +36,6 @@ session_start();
              });
 	    </script>
 
-		
 
 		<div class="container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
 		
@@ -45,39 +44,52 @@ session_start();
          <img class="img-responsive" src="/strona/img/logo1.png" height="25%" width="100%"/> 
         </a>
 
-	  
-	    <header>
+		   <header>
 	
 		<nav id="menu" class="navbar">
-	
-		  <ul class="main" >
-	      <li><a href="http://localhost:8080/strona/strona.php">Home</a></li>
-		  <li><a href="http://localhost:8080/strona/przepisy.php">Przepisy</a></li>
-          <li><a href="#">Produkty <i class="fa fa-caret-down"></i></a>
-         
-		 <ul >
-		  <li><a href="http://localhost:8080/strona/Ryże.php">Ryże</a></li>
-           <li><a href="http://localhost:8080/strona/Kasze.php">Kasze</a></li>
-	       <li><a href="http://localhost:8080/strona/Mąki.php">Mąki</a></li>
-		  </ul>	
-		 
-		  </li>
-		   <li class="log"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
-          </ul>
-		  <a href="javascript:void(0);"  class="icon" onclick="myFunction()"> &#9776;</a>
-        </nav>
-			 <div class="scroll ">
-	
-	 <ul class="ulscroll" >
-		   <li><a href="#one">Wegańskie</a></li>
-           <li><a href="#two">Wytrawne</a></li>
-	       <li><a href="#three">Słodkie</a></li>
-		  </ul>	
-	
-	 </div>
-		</header>
-	
-	<script>
+		
+		  
+		<?php
+include('newconnect.php');
+@mysqli_query($db, 'SET NAMES utf8');
+
+$sql_categories = 'SELECT `id`, `nazwa`,`adres_k`
+            FROM `kategorie`
+            ORDER BY `id`';
+$wynik = mysqli_query($db, $sql_categories);
+if (mysqli_num_rows($wynik) > 0) {
+    while ($kategoria = @mysqli_fetch_array($wynik)) {
+        echo "<ul class='main'>" . PHP_EOL;
+        $sql_subcategories = "SELECT `id`, `nazwa`, `adres`
+                FROM `podkategorie`
+           WHERE kategoria_id=" . $kategoria['id'] . "
+                ORDER BY `id`";
+        $wynik2 = mysqli_query($db, $sql_subcategories);
+        if (mysqli_num_rows($wynik2) > 0) {
+		
+			 echo "<li><a>".$kategoria['nazwa']."</a>" . PHP_EOL;
+			 echo "<ul>" . PHP_EOL;
+            
+            while ($podkategoria = @mysqli_fetch_array($wynik2)) {
+                echo '<li><a href="' . $podkategoria['adres'] . '">' . $podkategoria['nazwa'] . '</a></li>' . PHP_EOL;
+            }
+			echo "</ul></li>" . PHP_EOL;
+		}
+        else {
+            echo '<li><a href="' . $kategoria['adres_k'] . '">' . $kategoria['nazwa'] . '</a></li>' . PHP_EOL;
+        }
+        echo "</ul>" . PHP_EOL;
+    }
+} 
+else {
+    echo 'wyników 0';
+}
+
+mysqli_close($db);
+?>
+<a href="javascript:void(0);"  class="icon" onclick="myFunction()"> &#9776;</a>
+		  
+		  	<script>
        function myFunction() {
        var x = document.getElementById("menu");
        if (x.className === "navbar") {
@@ -88,26 +100,25 @@ session_start();
        }
     </script>
 	
+        </nav>
+		<div class="scroll ">
+	
+	 <ul class="ulscroll" >
+		   <li><a href="#one">Wegańskie</a></li>
+           <li><a href="#two">Wytrawne</a></li>
+	       <li><a href="#three">Słodkie</a></li>
+		  </ul>	
+	
+        </div>	
+		</header>
+	
+     <main>
 
-
-     <main >
-
-<div class="parallax">jjjj</div>
-
-		
+      <div class="parallax">  </div>
 	 <div class="przepisy container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	 
-
-
            <section id="one">
-				<h2 class="hprzepisy">Przepisy wegańskie</h2>
-				
-				
-				
-				
-				
-				
-				
+				<h2 class="hprzepisy">Przepisy wegańskie</h2><br>
 				
 		<?php
 	require_once "connect.php";
@@ -122,7 +133,7 @@ session_start();
 	{
 		
 
-		$sql="SELECT * FROM przepisy WHERE rodzaj_id=' 1 - wegańskie' ";
+		$sql="SELECT * FROM przepisy WHERE rodzaj='wegańskie' ";
 		$wynik=$connect->query($sql);
 	
 		if(mysqli_num_rows($wynik) > 0) { 
@@ -130,15 +141,21 @@ session_start();
 		echo "<table>"; 
 		while($r = mysqli_fetch_object($wynik)) { 
         echo "<tr>"; 
-		echo "<td><br>".$r->img."</td>";
-        echo "<td><b>".$r->nazwa."</b><br>"; 
-		 
-        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
-		//echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
-        echo "</tr>"; 
+		//echo "<td><br>".$r->img."</td>";
+		
+		echo "<td><br><a href=".$r->img." data-lightbox='roadtrip' data-title=".$r->nazwa."><img class='col-xs-12 col-sm-12 col-md-12 col-lg-12' src=".$r->img. " alt=".$r->nazwa."/></a></td>";
+		
+		
+		
+		
+        echo "<td><b>".$r->nazwa."</b><br><br>"; 
+		 echo "<b>Składniki:</b><br>";
+		 echo "".$r->składniki."</p><br>"; 
+         echo "<b>Przygotowanie:</b><br>";
+         echo "".$r->opis."</p><br><br>"; 
+         echo "</tr>"; 
 		} 
 		echo "</table><br><br>"; 
-		//koniec tabeli
 
 		}	
 		
@@ -149,7 +166,7 @@ session_start();
 
 		    </section>
 	       <section id="two">
-				<h2 class="hprzepisy">Przepisy wytrawne</h2>
+				<h2 class="hprzepisy">Przepisy wytrawne</h2><br>
 					<?php
 	require_once "connect.php";
 	$connect = new mysqli($host, $user, $pass, $database);
@@ -162,8 +179,7 @@ session_start();
 	else
 	{
 		
-
-		$sql="SELECT * FROM przepisy WHERE rodzaj_id=' 2 - wytrawne' ";
+		$sql="SELECT * FROM przepisy WHERE rodzaj='wytrawne' ";
 		$wynik=$connect->query($sql);
 	
 		if(mysqli_num_rows($wynik) > 0) { 
@@ -171,11 +187,13 @@ session_start();
 		echo "<table>"; 
 		while($r = mysqli_fetch_object($wynik)) { 
         echo "<tr>"; 
-		echo "<td><br>".$r->img."</td>";
-        echo "<td><b>".$r->nazwa."</b><br>"; 
-		 
-        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
-		//echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
+		//echo "<td><br>".$r->img."</td>";
+		echo "<td><br><a href=".$r->img." data-lightbox='roadtrip' data-title=".$r->nazwa."><img class='col-xs-12 col-sm-12 col-md-12 col-lg-12' src=".$r->img. " alt=".$r->nazwa."/></a></td>";
+        echo "<td><b>".$r->nazwa."</b><br><br>"; 
+		 echo "<b>Składniki:</b><br>";
+		  echo "".$r->składniki."</p><br>"; 
+		   echo "<b>Przygotowanie:</b><br>";
+        echo "".$r->opis."</p><br><br>"; 
         echo "</tr>"; 
 		} 
 		echo "</table><br><br>"; 
@@ -189,7 +207,7 @@ session_start();
 ?>
 			</section>
 	       <section id="three">
-				<h2 class="hprzepisy">Przepisy na słodko</h2>
+				<h2 class="hprzepisy">Przepisy na słodko</h2><br>
 				<?php
 	require_once "connect.php";
 	$connect = new mysqli($host, $user, $pass, $database);
@@ -201,21 +219,23 @@ session_start();
 	}
 	else
 	{
-		
 
-		$sql="SELECT * FROM przepisy WHERE rodzaj_id=' 3 - słodkie' ";
+		$sql="SELECT * FROM przepisy WHERE rodzaj='słodkie' ";
 		$wynik=$connect->query($sql);
 	
 		if(mysqli_num_rows($wynik) > 0) { 
 		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
 		echo "<table>"; 
 		while($r = mysqli_fetch_object($wynik)) { 
-        echo "<tr>"; 
-		echo "<td><br>".$r->img."</td>";
-        echo "<td><b>".$r->nazwa."</b><br>"; 
-		 
-        echo "<p align='justify'>".$r->opis."</p><br><br>"; 
-		//echo "<form method='POST' action='ulubione.php'><input type='hidden' name='Nr_ksiazki' value=".$r->Nr_ksiazki."><input type='submit' value='Ulubione'></form></td>";
+        echo "<tr>";
+		
+		//echo "<td><br>".$r->img."</td>";
+		echo "<td><br><a href=".$r->img." data-lightbox='roadtrip' data-title=".$r->nazwa."><img class='col-xs-12 col-sm-12 col-md-12 col-lg-12' src=".$r->img. " alt=".$r->nazwa."/></a></td>";
+        echo "<td><b>".$r->nazwa."</b><br><br>"; 
+		 echo "<b>Składniki:</b><br>";
+		  echo "".$r->składniki."</p><br>"; 
+		   echo "<b>Przygotowanie:</b><br>";
+        echo "".$r->opis."</p><br><br>"; 
         echo "</tr>"; 
 		} 
 		echo "</table><br><br>"; 
@@ -234,10 +254,11 @@ session_start();
        <footer >
 	      <h3>Kontakt</h3>
           
-          <p>Adres:
+            Adres:
 	      <br> ul. Miętowa 18
           <br>81-589 Gdynia
-          <br>Tel.: 58 98 414 56</br></p>
+          <br>Tel.: 58 98 414 56
+          <br>o_om@o2.pl</br>
 	
         </footer>
 
@@ -247,18 +268,10 @@ session_start();
 	 
 <link rel="stylesheet" href="dist/css/lightbox.min.css">
 <script src="dist/js/lightbox-plus-jquery.min.js"></script>
-
-	 	   
-	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-	
-	   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-	
-	
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-
-
 
 </body>
 

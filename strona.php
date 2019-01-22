@@ -24,29 +24,52 @@
         </a>
 
 	  
-	    <header>
-	 
+	       <header>
+	
 		<nav id="menu" class="navbar">
-	
-		  <ul class="main" >
-	      <li><a href="http://localhost:8080/strona/strona.php">Home</a></li>
-		  <li><a href="http://localhost:8080/strona/przepisy.php">Przepisy</a></li>
-          <li><a href="#">Produkty <i class="fa fa-caret-down"></i></a>
-         
-		 <ul >
-		   <li><a href="#two">Ryże</a></li>
-           <li><a href="http://localhost:8080/strona/Kasze.php">Kasze</a></li>
-	       <li><a href="#three">Inne</a></li>
-		  </ul>	
-		 
-		  </li>
-		   <li class="log"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Zaloguj</a></li>
-          </ul>
-		  <a href="javascript:void(0);"  class="icon" onclick="myFunction()"> &#9776;</a>
-        </nav>
-       </header>
-	
-	<script>
+		
+		  
+		<?php
+include('newconnect.php');
+@mysqli_query($db, 'SET NAMES utf8');
+
+$sql_categories = 'SELECT `id`, `nazwa`,`adres_k`
+            FROM `kategorie`
+            ORDER BY `id`';
+$wynik = mysqli_query($db, $sql_categories);
+if (mysqli_num_rows($wynik) > 0) {
+    while ($kategoria = @mysqli_fetch_array($wynik)) {
+        echo "<ul class='main'>" . PHP_EOL;
+        $sql_subcategories = "SELECT `id`, `nazwa`, `adres`
+                FROM `podkategorie`
+           WHERE kategoria_id=" . $kategoria['id'] . "
+                ORDER BY `id`";
+        $wynik2 = mysqli_query($db, $sql_subcategories);
+        if (mysqli_num_rows($wynik2) > 0) {
+		
+			 echo "<li><a>".$kategoria['nazwa']."</a>" . PHP_EOL;
+			 echo "<ul>" . PHP_EOL;
+            
+            while ($podkategoria = @mysqli_fetch_array($wynik2)) {
+                echo '<li><a href="' . $podkategoria['adres'] . '">' . $podkategoria['nazwa'] . '</a></li>' . PHP_EOL;
+            }
+			echo "</ul></li>" . PHP_EOL;
+		}
+        else {
+            echo '<li><a href="' . $kategoria['adres_k'] . '">' . $kategoria['nazwa'] . '</a></li>' . PHP_EOL;
+        }
+        echo "</ul>" . PHP_EOL;
+    }
+} 
+else {
+    echo 'wyników 0';
+}
+
+mysqli_close($db);
+?>
+<a href="javascript:void(0);"  class="icon" onclick="myFunction()"> &#9776;</a>
+		  
+		  	<script>
        function myFunction() {
        var x = document.getElementById("menu");
        if (x.className === "navbar") {
@@ -56,6 +79,10 @@
        }
        }
     </script>
+	
+        </nav>
+			
+		</header>
 	
 	
 
@@ -107,7 +134,7 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-        Dzielenie się informacjami jest ogromnym sprzymierzeńcem dla rozwoju, dlatego zdecydowaliśmy się uruchomić opcję dodawania przepisów Państwa autorstwa. Po sprawdzeniu ich pod kątem wartości odżywczych przez naszego specjalistę  zostaną one opublikowane na stronie,
+        Dzielenie się informacjami jest ogromnym sprzymierzeńcem dla rozwoju, dlatego mają Państwo możliwość przesłania nam swoich pomysłów (mail: przepis@kucharzenie.pl). Po sprawdzeniu ich pod kątem wartości odżywczych przez naszego specjalistę  zostaną one opublikowane na stronie,
         by każdy odwiedzający miał możliwość sprawdzenia, jakie smaki kryją się w Państwa domach. Gorąco zachęcamy!		
       </div>
     </div>
@@ -162,10 +189,11 @@
        <footer >
 	      <h3>Kontakt</h3>
           
-          <p>Adres:
+           Adres:
 	      <br> ul. Miętowa 18
           <br>81-589 Gdynia
-          <br>Tel.: 58 98 414 56</br></p>
+          <br>Tel.: 58 98 414 56
+          <br>o_om@o2.pl</br>
 	
         </footer>
 

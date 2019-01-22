@@ -33,6 +33,31 @@ img {
 	vertical-align: super !important;
 }
 
+span{}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .d-block {
 	
 }
@@ -64,7 +89,12 @@ padding: 1px 0px 5px 0 !important;
   
 }
 
+.btn-info {
 
+    color: #fff;
+    background-color: black !important;
+	border-color: black !important;
+}
 
 
 
@@ -202,7 +232,7 @@ p {
 
   
   .navbar.responsive ul {
-	  padding: 40px 0px 0px 15px;
+	  #padding: 40px 0px 0px 15px;
     
   }
   
@@ -217,8 +247,8 @@ p {
 list-style-type:none;
   padding:0;
   margin:2px;
-  height:2em;
-  margin-top: 5px !important;
+  #height:2em;
+  margin-top: 1px !important;
  
   text-align:center;
    
@@ -313,7 +343,7 @@ padding: 60px 0px 0px 0px;
 .btn{
 	
 	text-align:left !important;
-	font-size: 1.5rem !important;
+	font-size: 1.25rem !important;
 }
 
  .btn-link:hover {
@@ -404,6 +434,12 @@ margin-left: 150px;
 margin-top: 40px;
 }
 
+
+.container-fluid {
+
+    padding-left: 20px;
+}
+
 section{ margin-left:-25px}
 
 .parallax {
@@ -419,5 +455,9 @@ section{ margin-left:-25px}
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
+
+
 
 </style>

@@ -1,5 +1,16 @@
 <?php
-session_start();
+
+	session_start();
+	
+	if (($_SESSION['zalogowany']!=true) || ($_SESSION['admin']!=true) )
+	{
+
+		
+			header('Location: strona.php');
+			exit();
+		
+	
+	}
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -29,7 +40,7 @@ session_start();
         </a>
 
 	  
-	       <header>
+	    <header>
 	
 		<nav id="menu" class="navbar">
 		
@@ -70,7 +81,7 @@ else {
     echo 'wyników 0';
 }
 
-mysqli_close($db);
+
 ?>
 <a href="javascript:void(0);"  class="icon" onclick="myFunction()"> &#9776;</a>
 		  
@@ -88,7 +99,6 @@ mysqli_close($db);
         </nav>
 			
 		</header>
-	
 
 
      <main >
@@ -101,59 +111,19 @@ mysqli_close($db);
 
            <section>
 				
-		<?php
-	require_once "connect.php";
-	$connect = new mysqli($host, $user, $pass, $database);
-	$connect -> query ('SET NAMES utf8');
-	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
-	if ($connect->connect_errno!=0)
-	{
-		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
-	}
-	else
-	{
-		
+	<div align="center">
+	<br><a href="ePrzepisy.php" class="btn btn-success pull center">Edytuj przepisy</a><br>
+	<br><a href="eProdukt.php" class="btn btn-success pull center">Edytuj produkty</a><br>
+	<br><a href="eUzytk.php" class="btn btn-success pull center">Edytuj użytkowników</a><br>
+    <br><a href="wyloguj.php" class="btn btn-info pull center">Wyloguj</a>
 
-		$sql="SELECT * FROM produkty WHERE kategoria='ryże' ";
-		$wynik=$connect->query($sql);
-	
-		if(mysqli_num_rows($wynik) > 0) { 
-		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
-		echo "<table>"; 
-		while($r = mysqli_fetch_object($wynik)) { 
-        echo "<tr>"; 
-		//echo "<td><br>".$r->img."</td>";
-		echo "<td><br><a href=".$r->img." data-lightbox='roadtrip' data-title=".$r->nazwa."><img class='col-xs-12 col-sm-12 col-md-12 col-lg-12' src=".$r->img. " alt=".$r->nazwa."/></a></td>";
-        echo "<td><b>".$r->nazwa."</b><br><br>"; 
-		 
-         echo "".$r->opis."<br><br>"; 
-		echo "<b>Cena: </b> ".$r->cena." zł</p><br><br>"; 
-        echo "</tr>"; 
-		} 
-		echo "</table><br><br>"; 
-		//koniec tabeli
-
-		}	
-		
-		$connect->close();
-	}
-	
-?>
+</div>
 
 		    </section>
 			<div>
         </main>
 
-       <footer >
-	      <h3>Kontakt</h3>
-          
-           Adres:
-	      <br> ul. Miętowa 18
-          <br>81-589 Gdynia
-          <br>Tel.: 58 98 414 56
-          <br>o_om@o2.pl</br>
-	
-        </footer>
+     
 
 	
 		</div>
@@ -177,6 +147,10 @@ mysqli_close($db);
 </body>
 
 </html>
+
+
+
+
 
 
 

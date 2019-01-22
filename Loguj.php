@@ -1,5 +1,22 @@
 <?php
-session_start();
+
+	session_start();
+	
+	if ((isset($_SESSION['zalogowany'])) && ($_SESSION['zalogowany']==true))
+	{
+		if($_SESSION['admin']==true)
+		{
+			header('Location: admin.php');
+			exit();
+			}
+	     else
+		 {
+			 header('Location: Konto.php');
+			 
+		exit();
+		 }
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="pl-PL">
@@ -13,8 +30,7 @@ session_start();
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <title>Kucharzenie</title>
 
-
-		<link href="https://fonts.googleapis.com/css?family=Asar" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Asar" rel="stylesheet">
 
 </head>
 
@@ -88,63 +104,67 @@ mysqli_close($db);
         </nav>
 			
 		</header>
-	
+		
+		
 
+ <main>
+ 
+  <div align="center">
+   <div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+		Logowanie
+        </button>
+      </h5>
+    </div>
 
-     <main >
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+	  
+	  
+	    <form method="POST" action="zaloguj.php">
+   <br><b>Login:</b><br><input type="text" name="login"><br><br>
+   <b>Hasło:</b><br><input type="password" name="haslo"><br><br>
+   <input type="submit" value="Zaloguj" name="loguj"><br><br><br>
+
+        </form>
+	  
+
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Rejestracja
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+
+  	  
+  <form method="POST" action="Rejestracja.php">
+  <br><b>Login:</b><br><input type="text" name="login"><br><br>
+  <b>Hasło:</b><br><input type="password" name="haslo1"><br><br>
+  <b>Powtórz hasło:</b><br><input type="password" name="haslo2"><br><br>
+  <b>Email:</b><br><input type="text" name="email"><br><br>
+  <input type="submit" value="Utwórz konto" name="rejestruj"><br><br><br>
+ 
+  </form>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
 
 				
-		
-	 <div class="przepisy container-fluid col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	 
-
-
-           <section>
-				
-		<?php
-	require_once "connect.php";
-	$connect = new mysqli($host, $user, $pass, $database);
-	$connect -> query ('SET NAMES utf8');
-	$connect -> query ('SET CHARACTER_SET utf8_unicode_ci');
-	if ($connect->connect_errno!=0)
-	{
-		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
-	}
-	else
-	{
-		
-
-		$sql="SELECT * FROM produkty WHERE kategoria='ryże' ";
-		$wynik=$connect->query($sql);
-	
-		if(mysqli_num_rows($wynik) > 0) { 
-		/* jeżeli wynik jest pozytywny, to wyświetlamy dane */ 
-		echo "<table>"; 
-		while($r = mysqli_fetch_object($wynik)) { 
-        echo "<tr>"; 
-		//echo "<td><br>".$r->img."</td>";
-		echo "<td><br><a href=".$r->img." data-lightbox='roadtrip' data-title=".$r->nazwa."><img class='col-xs-12 col-sm-12 col-md-12 col-lg-12' src=".$r->img. " alt=".$r->nazwa."/></a></td>";
-        echo "<td><b>".$r->nazwa."</b><br><br>"; 
-		 
-         echo "".$r->opis."<br><br>"; 
-		echo "<b>Cena: </b> ".$r->cena." zł</p><br><br>"; 
-        echo "</tr>"; 
-		} 
-		echo "</table><br><br>"; 
-		//koniec tabeli
-
-		}	
-		
-		$connect->close();
-	}
-	
-?>
-
-		    </section>
-			<div>
-        </main>
-
-       <footer >
+</main>
+<p></p>
+       <footer>
 	      <h3>Kontakt</h3>
           
            Adres:
@@ -159,17 +179,13 @@ mysqli_close($db);
 		</div>
      
 	 
-<link rel="stylesheet" href="dist/css/lightbox.min.css">
-<script src="dist/js/lightbox-plus-jquery.min.js"></script>
-
-	 	   
+   <link rel="stylesheet" href="dist/css/lightbox.min.css">
+    <script src="dist/js/lightbox-plus-jquery.min.js"></script>  
 	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
-	
 	   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-	
-	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
 
 
 
