@@ -1,6 +1,7 @@
 <?php
 extract($_POST);
 include 'newconnect.php';
+@mysqli_query($db, 'SET NAMES utf8');
 $z = mysqli_query($db,"SELECT * FROM `produkty`");
 while($tab = mysqli_fetch_row($z))
 { $j = $tab[0];

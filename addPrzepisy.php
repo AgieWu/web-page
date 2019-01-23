@@ -161,7 +161,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($title_err) && empty($description_err) && empty($img_err) && empty($category_err)&& empty($sklad_err)){
         // Prepare an insert statement
-        $sql = "INSERT INTO przepisy (nazwa, rodzaj,składniki, opis, img) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO przepisy (nazwa, rodzaj,skladniki, opis, img) VALUES (?, ?, ?, ?, ?)";
          
         if($stmt = mysqli_prepare($db, $sql)){
             // Bind variables to the prepared statement as parameters

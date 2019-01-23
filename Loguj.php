@@ -86,7 +86,7 @@ else {
     echo 'wyników 0';
 }
 
-mysqli_close($db);
+//mysqli_close($db);
 ?>
 <a href="javascript:void(0);"  class="icon" onclick="myFunction()"> &#9776;</a>
 		  
@@ -109,6 +109,39 @@ mysqli_close($db);
 
  <main>
  
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   <div align="center">
    <div id="accordion">
   <div class="card">
@@ -124,13 +157,76 @@ mysqli_close($db);
       <div class="card-body">
 	  
 	  
-	    <form method="POST" action="zaloguj.php">
-   <br><b>Login:</b><br><input type="text" name="login"><br><br>
-   <b>Hasło:</b><br><input type="password" name="haslo"><br><br>
+	  
+	  
+	  
+	  <?php
+	
+
+	
+require_once "connect.php";
+$connect = new mysqli($host, $user, $pass, $database);
+	if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+	else
+	{
+		$login = $haslo = $hasloszyfr="";
+		if($_SERVER["REQUEST_METHOD"] == "POST")
+			
+		{ if(isset($_POST["loguj"]))
+		  {
+		  // $przycisk = trim($_POST["loguj"]);
+	       $login = trim($_POST["login"]);
+		   $haslo = trim($_POST["haslo"]);
+		   $hasloszyfr = md5($haslo);
+		 
+		    $sql = "SELECT * FROM uzytkownicy WHERE login='$login' AND haslo='$hasloszyfr'";
+		    if($rezultat=$connect->query($sql))
+		   {
+				$ilu_user=$rezultat->num_rows;
+				if($ilu_user>0)
+				{
+					$_SESSION['zalogowany']=true;
+					$wiersz=$rezultat->fetch_assoc();
+					$_SESSION['id']=$wiersz['id'];
+					$_SESSION['login']=$wiersz['login'];
+					$_SESSION['haslo']=$wiersz['haslo'];					
+					$rezultat->free();
+					header('Location: Konto.php');
+					if($_SESSION['id']==1)
+					{
+						$_SESSION['admin']=true;
+						header('Location: admin.php');
+					}
+					elseif($_SESSION['id']!==1)
+					{
+						$_SESSION['admin']=false;
+					}
+				}
+				else
+				{
+					 //header('Location: Loguj.php');
+					//echo "Nieprawidłowy login lub hasło. Spróbuj ponownie.";
+					 echo("<center><label><font color=\"red\">Nieprawidłowy login lub hasło</font></label></center>");
+				}
+					
+		    }
+	      }
+	   }
+	   
+	}
+		
+		$connect->close();
+?>
+	  
+	    <form method="POST" action="Loguj.php">
+         <br><b>Login:</b><br><input type="text" name="login"><br><br>
+      <b>Hasło:</b><br><input type="password" name="haslo" ><br><br>
    <input type="submit" value="Zaloguj" name="loguj"><br><br><br>
 
         </form>
-	  
 
       </div>
     </div>
@@ -145,10 +241,97 @@ mysqli_close($db);
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
+	  
+	  <?php
+$log=0;
+$em=0;	
+$has=0;
 
-  	  
-  <form method="POST" action="Rejestracja.php">
-  <br><b>Login:</b><br><input type="text" name="login"><br><br>
+
+require_once "connect.php";	  
+$connect = @new mysqli($host, $user, $pass, $database);
+
+if ($connect->connect_errno!=0)
+	{
+		echo "Połączenie nie mogło zostać utworzone. Błąd: ".$connect->connect_errno;
+	}
+else
+{$loginn=$haslo1=$haslo2=$email="";
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+	
+	if (isset($_POST["rejestruj"])){
+
+		// $cisk = trim($_POST['rejestruj']);
+	    $loginn = trim($_POST['loginn']);
+		$haslo1 = trim($_POST['haslo1']);
+		$haslo2 = trim($_POST['haslo2']);
+		$email = trim($_POST['email']);
+		
+		
+$query="SELECT login FROM uzytkownicy WHERE login='$loginn'";
+$result = mysqli_query($connect, $query);
+$numrow=mysqli_num_rows($result);
+
+
+	if((empty($email))||(empty($haslo1))||(empty($haslo2))){
+	echo "Uzupełnij arkusz.<br>";}
+	
+	if ($numrow == 0) 
+ {
+	$log=1;
+	
+ }
+    else {
+		echo "Podany login jest już zajęty. Spróbuj ponownie.<br>";
+		$log=0;   
+	}
+	
+	$query2="SELECT email FROM uzytkownicy WHERE email='$email'";
+	$result2 = mysqli_query($connect, $query2);
+	$numrow2=mysqli_num_rows($result2);
+		if ($numrow2 == 0) 
+ {
+	$ma=1;
+	
+ }
+    else {
+		echo "Podany email jest już w użyciu. Spróbuj ponownie.<br>";
+		$ma=0;   
+	}
+	
+   $sprawdz = '/^[a-zA-Z0-9.\-_]+@[a-zA-Z0-9\-.]+\.[a-zA-Z]{2,4}$/';
+
+	if(preg_match($sprawdz, $email)){
+	$em=1;}
+	else{
+	echo 'Adres e-mail nieprawidłowy. Spróbuj ponownie.<br>';
+	$em=0;}
+
+    if ($haslo1 == $haslo2) 
+      {
+		  $has=1;
+
+      }
+    else {
+		echo "Hasła nie są takie same. Spróbuj ponownie.<br>";
+		$has=0;
+	}
+if(($log==1)&&($has==1)&&($em==1)&&($ma==1)){
+        $query3=("INSERT INTO `uzytkownicy` (`login`, `haslo`, `email`)
+        VALUES ('".$loginn."', '".md5($haslo1)."', '".$email."');");
+		mysqli_query($connect, $query3);
+		$_SESSION['login']=$loginn;
+       $_SESSION['zalogowany']=true;
+	   header('Location: Konto.php');
+	   exit;}
+	   
+	   $connect->close();
+	}
+}} 
+?>
+	
+  <form method="POST" action="Loguj.php">
+  <br><b>Login:</b><br><input type="text" name="loginn"><br><br>
   <b>Hasło:</b><br><input type="password" name="haslo1"><br><br>
   <b>Powtórz hasło:</b><br><input type="password" name="haslo2"><br><br>
   <b>Email:</b><br><input type="text" name="email"><br><br>

@@ -131,12 +131,13 @@ else {
 
 			
 <form action="przepisyins.php" method="post">
-<table class='table table-bordered table-striped table-responsive'><tr><td></td><td><b>NR</b></td><td><b>Nazwa</b></td><td><b>Rodzaj</b></td><td><b>Składniki</b></td><td><b>Przygotowanie</b></td><td><b>Adres zdjęcia</b></td></tr>
+<table class='table table-bordered table-striped table-responsive'><tr><td></td><td><b>NR</b></td><td><b>Rodzaj</b></td><td><b>Nazwa</b></td><td><b>Składniki</b></td><td><b>Przygotowanie</b></td><td><b>Adres zdjęcia</b></td></tr>
 <?php
+
 $numerWiersza=1;
 $z =  mysqli_query($db,"SELECT * FROM `przepisy`");
 while($tab=mysqli_fetch_row($z))
-{echo '<tr><td><button type="submit"  name="edytowanie" value='.$tab[0].' onclick="edytujProdukty('.$numerWiersza.')" class="edycja">E</button>
+{echo '<tr><td><button type="submit"  name="edytowanie" value='.$tab[0].' onclick="edytujPrzepisy('.$numerWiersza.')" class="edycja">E</button>
 <input type=checkbox name="d['.$tab[0].']" value='.$tab[0].'></td><td>'.$numerWiersza.'</td>';
 for($i=1; $i<count($tab); $i++)
 {
@@ -148,16 +149,16 @@ $numerWiersza++;
 mysqli_close($db);
 ?>
 <tr><td><input type="submit" class="klik" name="usuwanie" value="usuń" class="button"/></td><td><input type="submit" class="klik" name="dodawanie" id= "one" value="dodaj" class="button"/></td>
-<td><input type=text class="pole" name=nazwa></td>
 <td><input type=text class="pole" name=rodzaj></td>
-<td><input type=text class="pole" name=składniki></td>
+<td><input type=text class="pole" name=nazwa></td>
+<td><input type=text class="pole" name=skladniki></td>
 <td><input type=text class="pole" name=opis></td>
 <td><input type=text class="pole" name=img></td></tr>
 </table>
 <br>
 </form>
 <script>
-function edytujProdukty(wiersz) {
+function edytujPrzepisy(wiersz) {
             if (document.getElementById("Zatwierdzacz") != null)
               return;
             var komorka;

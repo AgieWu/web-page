@@ -39,8 +39,8 @@ $connect = new mysqli($host, $user, $pass, $database);
 					}
 				}
 				else{
-					header('Location: Loguj.php');
-					//echo "Nieprawidłowy login lub hasło. Spróbuj ponownie.";
+					//header('Location: Loguj.php');
+					echo "Nieprawidłowy login lub hasło. Spróbuj ponownie.";
 					 //echo("<center><label><font color=\"red\">Nieprawidłowa nazwa użytkownika lub hasło</font></label></center>");
 				}
 					
